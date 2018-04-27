@@ -1,0 +1,30 @@
+{
+  "name": "firstproj",
+  "version": "1.0.0",
+  "description": "Demo purpose",
+  "main": "index.js",
+  "scripts": {
+    "test": "skms"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shariatululoom/MongoFirst.git"
+  },
+  "keywords": [
+    "first",
+    "commit"
+  ],
+  "author": "saurabh Tripathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shariatululoom/MongoFirst/issues"
+  },
+  "homepage": "https://github.com/shariatululoom/MongoFirst#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  }
+}
