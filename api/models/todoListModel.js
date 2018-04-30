@@ -31,7 +31,7 @@ var TaskSchema2 = new Schema({
     
   },
    
-  }
+  
 });
 module.exports = mongoose.model('Tasks', TaskSchema);
-module.exports = mongoose.model('db', TaskSchema2);
+module.exports = mongoose.model('collections', TaskSchema2);
