@@ -3,7 +3,16 @@
 
 var mongoose = require('mongoose'),
   Task = mongoose.model('Tasks'),
-  coll=mongoose.model('collections');
+  coll=mongoose.model('collections'),
+  users=mongoose.model('Users');
+  
+  exports.loginMethod= function(req, res) {
+  users.find({}, function(err, task) {
+    if (err)
+      res.send(err);
+    res.json(task);
+  });
+};
 
 exports.list_all_tasks = function(req, res) {
   Task.find({}, function(err, task) {

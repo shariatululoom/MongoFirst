@@ -33,5 +33,20 @@ var TaskSchema2 = new Schema({
    
   
 });
+var TaskSchema3 = new Schema({
+  "username": {
+    type: String,
+  
+  },
+ 
+ "password": {
+    type: String,
+    
+  },
+   
+  
+});
+
 module.exports = mongoose.model('Tasks', TaskSchema);
+module.exports = mongoose.model('Users', TaskSchema3);
 module.exports = mongoose.model('collections', TaskSchema2);
