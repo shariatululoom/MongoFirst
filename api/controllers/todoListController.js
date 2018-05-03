@@ -10,6 +10,40 @@ var mongoose = require('mongoose'),
  //res.send('Hello!');
  res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html')
 };
+ 
+
+exports.sendSignupCredents= function(req, res) {
+ const username = req.body.username;
+  const password = req.body.password;
+  var myData = new coll({"name":username,"experience":password});
+  myData.save(function(err, task) {
+    if (err || task.length === 0)
+	{
+      res.send(err);
+	  }
+	  else
+	  {
+    res.json(task);
+	console.log(`skms added:-  POST request: username is ${username} and password is ${password}`);
+  res.end(`Inserted ${username}`);
+  }
+  
+  });
+  /* coll.save([{"name":username,"experience":password}], function(err, task) {
+    if (err || task.length === 0)
+	{
+      res.send(err);
+	  }
+	  else
+	  {
+    res.json(task);
+	console.log(`skms added:-  POST request: username is ${username} and password is ${password}`);
+  res.end(`Inserted ${username}`);
+  }
+  
+  });*/
+  
+};
   
   
   exports.sendLoginCredents = function(req, res) {

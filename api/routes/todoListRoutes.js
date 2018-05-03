@@ -5,6 +5,9 @@ module.exports = function(app) {
   
   app.route('/sendloginreq')
   .post(todoList.sendLoginCredents);
+  
+  app.route('/sendsignupreq')
+  .post(todoList.sendSignupCredents);
 
   app.route('/login')
   .get(todoList.loginMethod);

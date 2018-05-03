@@ -5,6 +5,27 @@
 <script src= "https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script>
+ function controlSignup()
+ {
+ const username = $("#user1").val();
+      const password = $("#pass1").val();
+
+      $.post("http://localhost:3000/sendsignupreq", { username: username, password: password }, (data, status) => {
+
+        if (status === 'success' && data!='' && data.name!='ValidationError' )
+		{
+		console.log(data.name);
+          alert('Successfully signed up!');
+		  }
+		  
+        else
+		{
+		console.log(data.name);
+          alert("Signup failure!");
+		  }
+
+      });
+ }
 function controlLogin()
 {
 /*var xhr = new XMLHttpRequest();
@@ -24,7 +45,7 @@ console.log('modified:-  '+response[0].name);
 
       $.post("http://localhost:3000/sendloginreq", { username: username, password: password }, (data, status) => {
 
-        if (status === 'success' && data!='')
+        if (status === 'success' && data!='' )
 		{
 		console.log(data);
           alert(`Login success\n${data}`+data[0].name);
@@ -205,9 +226,9 @@ body{
 				<input type="password" placeholder="password" name="password" id="pass"><br>
 				<input type="button" value="Login" onclick="controlLogin()">
 				
-				<input type="text" placeholder="username" name="user" id="user"><br>
-				<input type="password" placeholder="password" name="password" id="pass"><br>
-				<input type="button" value="Login" onclick="controlLogin()">
+				<input type="text" placeholder="username" name="user1" id="user1"><br>
+				<input type="password" placeholder="password" name="password" id="pass1"><br>
+				<input type="button" value="Sign Up" onclick="controlSignup()">
 		</div>
 		
 		<br/>

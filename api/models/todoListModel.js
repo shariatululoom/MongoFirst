@@ -23,11 +23,13 @@ var TaskSchema = new Schema({
 var TaskSchema2 = new Schema({
   "name": {
     type: String,
+	required: true
   
   },
  
  "experience": {
     type: String,
+	required:true
     
   },
    
