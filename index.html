@@ -3,11 +3,11 @@
 
 <head>
 <script src= "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="js/MyJs.js" > </script>
-<script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script>
 function controlLogin()
 {
-var xhr = new XMLHttpRequest();
+/*var xhr = new XMLHttpRequest();
 xhr.open("GET", "http://localhost:3000/getAllUser", false);
 xhr.send();
 var response = JSON.parse(xhr.responseText);
@@ -15,6 +15,29 @@ console.log(xhr.status);
 console.log(xhr.statusText)
 console.log(xhr.responseText);
 console.log('modified:-  '+response[0].name);
+*/
+ 
+  
+    
+      const username = $("#user").val();
+      const password = $("#pass").val();
+
+      $.post("http://localhost:3000/sendloginreq", { username: username, password: password }, (data, status) => {
+
+        if (status === 'success' && data!='')
+		{
+		console.log(data);
+          alert(`Login success\n${data}`+data[0].name);
+		  }
+		  
+        else
+		{
+          alert("Login denied");
+		  }
+
+      });
+    
+  
 }
 </script>
 
@@ -165,7 +188,7 @@ body{
 }
 </style>
 
-    <script src="js/prefixfree.min.js"></script>
+   
 
 </head>
 
@@ -178,12 +201,19 @@ body{
 		</div>
 		<br>
 		<div class="login">
-				<input type="text" placeholder="username" name="user"><br>
-				<input type="password" placeholder="password" name="password"><br>
+				<input type="text" placeholder="username" name="user" id="user"><br>
+				<input type="password" placeholder="password" name="password" id="pass"><br>
+				<input type="button" value="Login" onclick="controlLogin()">
+				
+				<input type="text" placeholder="username" name="user" id="user"><br>
+				<input type="password" placeholder="password" name="password" id="pass"><br>
 				<input type="button" value="Login" onclick="controlLogin()">
 		</div>
+		
+		<br/>
+	
 
-  
+
 
 </body>
 

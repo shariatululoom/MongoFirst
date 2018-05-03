@@ -1,10 +1,15 @@
 'use strict';
 module.exports = function(app) {
   var todoList = require('../controllers/todoListController');
+  
+  
+  app.route('/sendloginreq')
+  .post(todoList.sendLoginCredents);
 
   app.route('/login')
   .get(todoList.loginMethod);
-  
+  app.route('/')
+  .get(todoList.first_page);
   // todoList Routes
   app.route('/tasks')
     .get(todoList.list_all_tasks)

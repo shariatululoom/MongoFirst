@@ -16,6 +16,14 @@ app.use(bodyParser.json());
 app.options('*', cors()); // include before other routes 
 app.use(cors());
 
+
+/*app.post('/sendloginreq', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  console.log(`POST request: username is ${username} and password is ${password}`);
+  res.end(`You are now logged in Mr(s) ${username}`);
+});
+*/
 var routes = require('./api/routes/todoListRoutes'); //importing route
 routes(app); //register the route
 

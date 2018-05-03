@@ -6,7 +6,32 @@ var mongoose = require('mongoose'),
   coll=mongoose.model('collections'),
   users=mongoose.model('Users');
   
-  exports.loginMethod= function(req, res) {
+  exports.first_page  = function(req, res) {
+ //res.send('Hello!');
+ res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html')
+};
+  
+  
+  exports.sendLoginCredents = function(req, res) {
+ const username = req.body.username;
+  const password = req.body.password;
+   coll.find({"name":username,"experience":password}, function(err, task) {
+    if (err || task.length === 0)
+	{
+      res.send(err);
+	  }
+	  else
+	  {
+    res.json(task);
+	console.log(`skms added:-  POST request: username is ${username} and password is ${password}`);
+  res.end(`You are now logged in Mr(s) ${username}`);
+  }
+  
+  });
+  
+};
+  
+  exports.loginMethod = function(req, res) {
   users.find({}, function(err, task) {
     if (err)
       res.send(err);
