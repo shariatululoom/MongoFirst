@@ -1,4 +1,3 @@
-!function()
-{
- alert('manual js called'); 
- }
+$(document).ready(function(){
+
+});

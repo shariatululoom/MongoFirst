@@ -48,7 +48,19 @@ var TaskSchema3 = new Schema({
    
   
 });
+var userDBSchema = new Schema({
+Email : {type: String, trim: true, index: true, unique: true, sparse: true, required: true},
+PasswordHash:{type: String},
+PasswordSalt:{type: String},
+Country : {type: String, trim: true},
+State : {type: String, trim: true},
+ContributeIn : {type: Array, trim: true, },
+LearnIn : {type: Array, trim: true, },
+Coins : {type: Number},
+DOB : {type:Date,default: Date.now},
 
+});
+module.exports = mongoose.model('myUserDatabase', userDBSchema);
 module.exports = mongoose.model('Tasks', TaskSchema);
 module.exports = mongoose.model('Users', TaskSchema3);
 module.exports = mongoose.model('collections', TaskSchema2);
