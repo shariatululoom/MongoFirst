@@ -1,15 +1,23 @@
 body{
 	margin:0;
 	color:#6a6f8c;
-	
+	background-size: auto;
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
-
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
 .login-wrap{
+	
 	width:100%;
 	margin:auto;
 	max-width:525px;
