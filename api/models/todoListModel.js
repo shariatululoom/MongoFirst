@@ -49,6 +49,8 @@ var TaskSchema3 = new Schema({
   
 });
 var userDBSchema = new Schema({
+FirstName: {type: String, trim: true,sparse: true, required: true},
+LastName: {type: String, trim: true,sparse: true, required: true},
 Email : {type: String, trim: true, index: true, unique: true, sparse: true, required: true},
 PasswordHash:{type: String},
 PasswordSalt:{type: String},
@@ -57,7 +59,7 @@ State : {type: String, trim: true},
 ContributeIn : {type: Array, trim: true, },
 LearnIn : {type: Array, trim: true, },
 Coins : {type: Number},
-DOB : {type:Date,default: Date.now},
+DOB : {type:Date},
 
 });
 module.exports = mongoose.model('myUserDatabase', userDBSchema);

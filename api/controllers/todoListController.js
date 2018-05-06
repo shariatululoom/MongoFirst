@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
  
   exports.first_page  = function(req, res) {
  //res.send('Hello!');
- res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html')
+ res.sendFile('D:/mongodb projects/MongoFirst'+ '/index.html')
 };
  
 
@@ -23,6 +23,13 @@ var salt;var passwordData;
 var crypto = require('crypto');
 const username = req.body.username;
   const password = req.body.password;
+  const dob = req.body.dob;
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const country = req.body.country;
+  const state = req.body.state;
+  console.log(username+dob+lastName+lastName+state);
+  
 /**
  * generates random string of characters i.e salt
  * @function
@@ -62,7 +69,7 @@ saltHashPassword(password);
 
 console.log('Hashed pwd:-  '+password);
  
-  var myData = new userDB({Email:username,"PasswordHash":passwordData.passwordHash,"PasswordSalt":passwordData.salt});
+  var myData = new userDB({FirstName:firstName,LastName:lastName,Email:username,"PasswordHash":passwordData.passwordHash,"PasswordSalt":passwordData.salt,Country:country,State:state,DOB:dob});
   myData.save(function(err, task) {
     if (err || task.length === 0)
 	{
