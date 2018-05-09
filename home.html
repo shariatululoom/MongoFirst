@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+    float: left;
+    width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 0px;
+}
+
+/* Add a card effect for articles */
+.card {
+     background-color: white;
+     padding: 20px;
+     margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2 style="color:blue;">SFDC Geeks</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>Implementing DX in existing projects</h2>
+      <h5>Enhance developer experience using Salesforce new release Salesgorce DX, May 1, 2018</h5>
+      <div class="fakeimg" ><img src="https://image.slidesharecdn.com/salesforcedxpilotproductoverview-170324165542/95/salesforce-dx-pilot-product-overview-1-638.jpg" style="height:200px;width:100%;"/></div>
+      
+      <p>Welcome to the modern developer experience that will change the way you build Salesforce applications. Whether you're an individual developer or working in a large team, Salesforce DX provides you with an integrated, end-to-end lifecycle designed for high-performance agile development. And best of all, we've built it to be open and flexible so you can build together with tools you love</p>
+    </div>
+    <div class="card">
+      <h2>Maintain sesion using express framework</h2>
+      <h5>Handle session in cookies , April 25, 2018</h5>
+      <div class="fakeimg" ><img src="https://javabeat.net/wp-content/uploads/2015/09/Express-2.jpg" style="height:200px;width:100%;"/></div>
+      
+      <p>Since version 1.5.0, the cookie-parser middleware no longer needs to be used for this module to work. This module now directly reads and writes cookies on req/res. Using cookie-parser may result in issues if the secret is not the same between this module and cookie-parser.</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg2" ><img src="./img/m3.jpg" style="height:100px;"/></div>
+      <p>I'm Salesforce developer and blogger for last 2 years. Body building is another super interest..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+	  <h4> Start building node js apps
+      <div class="fakeimg2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbxsUvVQEzRYJItWMYjPbMmWR0_55n8-Md4_zEuUYC745vh8op" style="width:100%;height:70px;"/></div><br>
+      
+     
+    </div>
+    <div class="card">
+      <h3>Follow Me on Instagram</h3>
+      <p>@septfell4nov</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/2000px-Facebook_icon.svg.png" style="width:20px;height:20px;"/>
+</div>
+
+</body>
+</html>

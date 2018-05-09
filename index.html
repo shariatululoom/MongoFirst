@@ -64,8 +64,10 @@ console.log('modified:-  '+response[0].name);
       $.post("http://localhost:3000/sendloginreq", { username: username, password: password }, (data, status) => {
         if (status === 'success' && data!='' )
 		{
+		window.location.href = "./home.html";
+		
 		console.log(data);
-          alert(`Login success\n${data}`+data[0].name);
+          alert('Welcome '+data[0].FirstName);
 		  }
 		  
         else
