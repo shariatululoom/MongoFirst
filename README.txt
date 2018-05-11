@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //Saurah
 Node jS + Express +Mongo
 post salting and hashing:-   
@@ -6,3 +7,7 @@ Install express session:-  "npm install --save express-session"
 Install mongostore:-  "npm install connect-mongostore"
 install connect mongo:-  "npm install connect-mongo"
 
+=======
+Node jS + Express +Mongo
+//working on session
+>>>>>>> e6fb283fff23eac065c6c5e2867f80504811fe0c
