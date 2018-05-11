@@ -4,6 +4,10 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
+   cookieParser = require('cookie-parser'),
+   session = require('express-session'),
+   MongoStore  =       require('connect-mongo')(session),
+   serveStatic = require('serve-static'),
   Task = require('./api/models/todoListModel'), //created model loading here
   bodyParser = require('body-parser');
   
@@ -17,7 +21,34 @@ app.use(bodyParser.json());
 app.options('*', cors()); // include before other routes 
 app.use(cors());
 
+//*****************cookie code************
+app.use(cookieParser());
+//delete a cookie named "foo"
+//res.clearCookie('foo');
+app.use(session({secret: "ILOVEMONGO",
+resave: false,
+maxAge: 36000,
+saveUninitialized: true,
+ name: "SessionId",
+  store: new MongoStore({
+      url: 'mongodb://localhost/db' ,
+	  ttl: 30
+    })
+}));
 
+/*app.get('/', function(req, res){
+console.log('cookie check in server.js:-  '+req.session);
+   if(req.session.page_views){
+   console.log('got session:-  '+req.session.Content);
+      req.session.page_views++;
+      res.send("You visited this page " + req.session.page_views + " times");
+   } else {
+      req.session.page_views = 1;
+      res.send("Welcome to this page for the first time!");
+   }
+});
+*/
+//***********cookie code ends *****************
 /*app.post('/sendloginreq', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;

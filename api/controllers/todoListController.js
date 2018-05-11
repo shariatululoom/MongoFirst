@@ -13,7 +13,8 @@ var mongoose = require('mongoose'),
  
   exports.first_page  = function(req, res) {
  //res.send('Hello!');
- res.sendFile('D:/mongodb projects/MongoFirst'+ '/index.html')
+  res.cookie('name', 'express').sendFile('D:/skmsMongo/FirstProj'+ '/index.html');
+ //res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html')
 };
  
 
@@ -101,6 +102,11 @@ console.log('Hashed pwd:-  '+password);
   
   
   exports.sendLoginCredents = function(req, res) {
+  
+  //print cookies recived from browser
+  console.log('Cookies: ', req.cookies);
+  ////Expires after 36000 ms from the time it is set.
+  res.cookie('LoginCookie', 'sessionID',{maxAge: 36000});
  const username = req.body.username;
   const password = req.body.password;
    userDB.find({Email:username}, function(err, task) {
@@ -147,6 +153,7 @@ saltHashPassword(password);
 	  console.log('Regenerated hash:-  '+passwordData.passwordHash);
 	  if(task[0].PasswordHash ===passwordData.passwordHash)
 	  {
+	  res.cookie('name', 'express');
     res.json(task);
 	}
 	else
