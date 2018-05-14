@@ -27,13 +27,13 @@ app.use(cookieParser());
 //res.clearCookie('foo');
 app.use(session({secret: "ILOVEMONGO",
 resave: false,
-maxAge: 36000,
 saveUninitialized: true,
  name: "SessionId",
   store: new MongoStore({
       url: 'mongodb://localhost/db' ,
 	  ttl: 30
-    })
+    }),
+	cookie: { maxAge: 60000 }
 }));
 
 /*app.get('/', function(req, res){
