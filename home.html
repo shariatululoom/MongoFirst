@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src= "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var logout = function() {
+//this is to validate password.... 
+  
+console.log('Found this');
+//alert('logout');
+$.post("http://localhost:3000/logout",  (data, status) => {
+      if(status === 'success' )
+	  {
+	  console.log('Error......');
+	  }
+      });
+}
+</script>
+
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {
@@ -75,7 +95,7 @@ body {
 </style>
 </head>
 <body>
-
+<button onclick="logout()">Logout</button>
 <div class="header">
   <h2 style="color:blue;">SFDC Geeks</h2>
 </div>

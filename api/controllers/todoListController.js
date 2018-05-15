@@ -43,7 +43,7 @@ const username = req.body.username;
   const lastName = req.body.lastName;
   const country = req.body.country;
   const state = req.body.state;
-  console.log(username+dob+lastName+lastName+state);
+  //console.log(username+dob+lastName+lastName+state);
   
 /**
  * generates random string of characters i.e salt
@@ -82,7 +82,7 @@ function saltHashPassword(userpassword) {
 
 saltHashPassword(password);
 
-console.log('Hashed pwd:-  '+password);
+//console.log('Hashed pwd:-  '+password);
  
   var myData = new userDB({FirstName:firstName,LastName:lastName,Email:username,"PasswordHash":passwordData.passwordHash,"PasswordSalt":passwordData.salt,Country:country,State:state,DOB:dob});
   myData.save(function(err, task) {
@@ -93,7 +93,7 @@ console.log('Hashed pwd:-  '+password);
 	  else
 	  {
     res.json(task);
-	console.log(`skms added:-  POST request: username is ${username} and password is ${password}`);
+	//console.log(`skms added:-  POST request: username is ${username} and password is ${password}`);
   res.end(`Inserted ${username}`);
   }
   
@@ -190,6 +190,20 @@ saltHashPassword(password);
   });
   
 };
+  
+  exports.logout= function(req,res)
+  {
+  
+  req.session.destroy(function(){
+      console.log("user logged out.")
+   });
+   
+  res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html');
+  
+ 
+  
+  }
+  
   
   exports.loginMethod = function(req, res) {
   users.find({}, function(err, task) {

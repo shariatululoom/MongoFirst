@@ -10,4 +10,7 @@ install connect mongo:-  "npm install connect-mongo"
 =======
 Node jS + Express +Mongo
 //working on session
->>>>>>> e6fb283fff23eac065c6c5e2867f80504811fe0c
+session is stored using mongo store, and encrypted before saving as cookie , using secret.
+
+Additional sesson obje (Say username) is added to session , to check whether the db has that object existing for the 
+requested session.

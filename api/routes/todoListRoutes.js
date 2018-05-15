@@ -13,6 +13,8 @@ module.exports = function(app) {
   .get(todoList.loginMethod);
   app.route('/')
   .get(todoList.first_page);
+  app.route('/logout')
+  .post(todoList.logout);
   // todoList Routes
   app.route('/tasks')
     .get(todoList.list_all_tasks)
