@@ -2,18 +2,32 @@
 
 
 var mongoose = require('mongoose'),
+cors = require('cors'),
   Task = mongoose.model('Tasks'),
   coll=mongoose.model('collections'),
   users=mongoose.model('Users'),
-  userDB=mongoose.model('myUserDatabase');
+  userDB=mongoose.model('myUserDatabase'),
+  express = require('express'),
+  app = express(),
+  cookieParser = require('cookie-parser'),
+   session = require('express-session'),
+    bodyParser = require('body-parser'),
+   MongoStore  =       require('connect-mongo')(session);
  
 
-
+var sess;
 
  
   exports.first_page  = function(req, res) {
- //res.send('Hello!');
+ console.log('got session:-  '+req.session.username);
+ if(req.session.username)
+ {
+  res.sendFile('D:/skmsMongo/FirstProj'+ '/home.html');
+  }
+  else
+  {
   res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html');
+  }
  //res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html')
 };
  
@@ -102,8 +116,9 @@ console.log('Hashed pwd:-  '+password);
   
   
   exports.sendLoginCredents = function(req, res) {
-  req.session.user123=123;
-  console.log('session stored:-  '+req.session.user123);
+  console.log('inside log :-  '+req.session.token);
+  //req.session.user123=123;
+  //console.log('session stored:-  '+req.session.user123);
  // req.session.destroy(function(){
    ////   console.log("user logged out.")
    //});
@@ -111,7 +126,7 @@ console.log('Hashed pwd:-  '+password);
   //print cookies recived from browser
   console.log('Cookies: ', req.cookies);
   ////Expires after 36000 ms from the time it is set.
-  res.cookie('LoginCookie', 'sessionID',{maxAge: 36000});
+  //res.cookie('LoginCookie', 'sessionID',{maxAge: 36000});
  const username = req.body.username;
   const password = req.body.password;
    userDB.find({Email:username}, function(err, task) {
@@ -158,9 +173,11 @@ saltHashPassword(password);
 	  console.log('Regenerated hash:-  '+passwordData.passwordHash);
 	  if(task[0].PasswordHash ===passwordData.passwordHash)
 	  {
-	  
+	  console.log('cookie set');
+	  req.session.username=username;
 	  //req.session('name', 'express');
-    res.json(task);
+	   
+   res.json(task);
 	}
 	else
 	{

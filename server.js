@@ -25,13 +25,15 @@ app.use(cors());
 app.use(cookieParser());
 //delete a cookie named "foo"
 //res.clearCookie('foo');
-app.use(session({secret: "ILOVEMONGO",
+
+app.use(session({
+secret: 'ksdskdhskdhkhdks',
 resave: false,
 saveUninitialized: true,
  name: "SessionId",
   store: new MongoStore({
       url: 'mongodb://localhost/db' ,
-	  ttl: 30
+	  ttl: 60
     }),
 	cookie: { maxAge: 60000 }
 }));
