@@ -176,7 +176,7 @@ saltHashPassword(password);
 	  console.log('cookie set');
 	  req.session.username=username;
 	  //req.session('name', 'express');
-	   
+	  //res.redirect('/home.html'); 
    res.json(task);
 	}
 	else
