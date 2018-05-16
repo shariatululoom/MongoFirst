@@ -22,7 +22,9 @@ var sess;
  console.log('got session:-  '+req.session.username);
  if(req.session.username)
  {
-  res.sendFile('D:/skmsMongo/FirstProj'+ '/home.html');
+
+ res.redirect('/dashboard');
+  
   }
   else
   {
@@ -175,9 +177,10 @@ saltHashPassword(password);
 	  {
 	  console.log('cookie set');
 	  req.session.username=username;
+	 return  res.redirect('/dashboard');
 	  //req.session('name', 'express');
 	  //res.redirect('/home.html'); 
-   res.json(task);
+   //res.json(task);
 	}
 	else
 	{
@@ -190,6 +193,21 @@ saltHashPassword(password);
   });
   
 };
+  exports.showDashboard= function(req,res)
+  {
+  console.log('Dashboard called');
+  if(req.session.username)
+ {
+
+ res.sendFile('D:/skmsMongo/FirstProj'+ '/home.html');
+  
+  }
+  else
+  {
+  res.sendFile('D:/skmsMongo/FirstProj'+ '/index.html');
+  }
+   
+  }
   
   exports.logout= function(req,res)
   {

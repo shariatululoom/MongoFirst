@@ -65,9 +65,9 @@ console.log('modified:-  '+response[0].name);
         if (status === 'success' && data!='' )
 		{
 		
-		
-		console.log(data);
-          alert('Welcome '+data[0].FirstName);
+	location.href("localhost:3000/dashboard");
+		console.log('Login Success');
+          //alert('Welcome '+data[0].FirstName);
 		  }
 		  
         else

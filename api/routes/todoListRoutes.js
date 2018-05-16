@@ -8,7 +8,8 @@ module.exports = function(app) {
   
   app.route('/sendsignupreq')
   .post(todoList.sendSignupCredents);
-
+  app.route('/dashboard')
+  .get(todoList.showDashboard);
   app.route('/login')
   .get(todoList.loginMethod);
   app.route('/')
